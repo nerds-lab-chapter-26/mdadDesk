@@ -15,7 +15,10 @@ Rules:
 - summary: one short English sentence describing only stated facts.
 - language: ISO 639-1 code of the main language ("en", "ja", "id" ...); "roman-ur" for Urdu in
   Latin letters; "mixed" when two languages are mixed.
-- missingFields: which of incidentType, building, floor, landmark, peopleReported are null.`;
+- missingFields: which of incidentType, building, floor, landmark, peopleReported are null.
+- question: if building, floor, landmark or peopleReported is null, ONE short follow-up question
+  (max 15 words) about the first missing one in that order, in the report's own language and script.
+  If none is missing, null.`;
 
 export const CLARIFY_SYSTEM = `You help an emergency coordinator ask ONE short follow-up question.
 Ask about the single most important missing detail, in this priority:

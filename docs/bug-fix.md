@@ -11,6 +11,12 @@ Add newest entries at the top. Format:
 ```
 
 ---
+## 2026-10-18 — Follow-up question not shown on the report page
+**Symptom:** after a Japanese SOS with no building name, "What we understood" showed the fields but no follow-up question.
+**Cause:** the question came from a second Gemini call (clarify). In the browser it failed quietly (likely free-tier quota or timeout right after the first call), and the failure was not shown or logged.
+**Fix:** the extract call now also returns `question` (prompt rule + schema + `Extraction.question`), so one Gemini answer carries fields and follow-up. Removed the separate web clarify call (`web/src/lib/ai.ts`, `hooks/submitSteps.ts`).
+**Check:** direct test: Japanese report without building -> 「どこのビルですか？」, Roman Urdu -> "Konsi building mein aag lagi hai?", full English report -> null. `npm run eval`: 92.7% (139/150), 0 invented, 0/30 failures.
+
 
 ## 2026-10-14 — Location banner flashed and vanished
 **Symptom:** on a phone where location was already allowed, the "Turn on location" banner appeared for a

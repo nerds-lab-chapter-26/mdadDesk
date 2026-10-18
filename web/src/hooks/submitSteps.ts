@@ -1,5 +1,5 @@
 import type { AiStatus, DeliveryStatus, Extraction, GeoPoint, IncidentType } from "@shared";
-import { clarifyReport, extractReport } from "@/lib/ai";
+import { extractReport } from "@/lib/ai";
 import { getLocation } from "@/lib/geo";
 import { rememberReport } from "@/lib/myReports";
 import { applyExtraction, attachLocation, sendReport } from "@/services/reports";
@@ -33,16 +33,12 @@ export function deliver(id: string, text: string, type: IncidentType, patch: Pat
   });
 }
 
-/** Step 2: let Gemini read the message; ask one follow-up question if details are missing. */
+/** Step 2: Gemini reads the message and, if details are missing, writes one follow-up question. */
 export async function readWithAi(id: string, text: string, saveToFirebase: boolean, patch: Patch) {
   const res = await extractReport({ text });
   const extraction = res.ok ? res.extraction : null;
   if (!res.ok) console.warn("[ai] failed:", res.error); // F12 → Console shows why (App Check, model, …)
-  patch({ ai: res.ok ? "ok" : "failed", extraction });
+  // The follow-up question comes in the same Gemini answer: one call, so it can't fail on its own.
+  patch({ ai: res.ok ? "ok" : "failed", extraction, question: extraction?.question ?? null });
   if (saveToFirebase) applyExtraction(id, extraction).catch(console.error);
-
-  if (extraction?.missingFields.length) {
-    const q = await clarifyReport({ text, extraction });
-    if (q.ok) patch({ question: q.question });
-  }
 }

@@ -14,6 +14,7 @@ export interface Extraction {
   helpRequested: string | null;
   summary: string;
   language: string; // ISO code ("en", "ja", "id" ...), "roman-ur" or "mixed"
+  question: string | null; // one follow-up for the reporter, in their own language
   missingFields: LocationField[];
 }
 
@@ -26,5 +27,6 @@ export const emptyExtraction = (summary = ""): Extraction => ({
   helpRequested: null,
   summary,
   language: "mixed",
+  question: null,
   missingFields: [...LOCATION_FIELDS],
 });

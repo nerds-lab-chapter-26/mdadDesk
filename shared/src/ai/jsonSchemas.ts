@@ -19,9 +19,10 @@ export const extractionJsonSchema: JsonSchema = {
     helpRequested: textOrNull,
     summary: { type: "string" },
     language: { type: "string" }, // ISO code like "ja", or "roman-ur" / "mixed"
+    question: textOrNull, // follow-up for the reporter, in their language
     missingFields: { type: "array", items: { type: "string", enum: [...LOCATION_FIELDS] } },
   },
-  required: ["incidentType", "building", "floor", "landmark", "peopleReported", "summary", "language", "missingFields"],
+  required: ["incidentType", "building", "floor", "landmark", "peopleReported", "summary", "language", "missingFields", "question"],
 };
 
 export const clarifyJsonSchema: JsonSchema = {

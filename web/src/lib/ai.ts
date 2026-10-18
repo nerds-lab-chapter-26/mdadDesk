@@ -1,9 +1,6 @@
 import { getAI, getGenerativeModel, GoogleAIBackend, ThinkingLevel } from "firebase/ai";
-import type { ClarifyRequest, ClarifyResponse, ExtractRequest, ExtractResponse } from "@shared";
-import {
-  CLARIFY_SYSTEM, EXTRACT_SYSTEM, clarifyJsonSchema, clarifyPrompt, extractionJsonSchema,
-  toExtraction, toQuestion, tryModels, withTimeout, type JsonSchema,
-} from "@shared/ai";
+import type { ExtractRequest, ExtractResponse } from "@shared";
+import { EXTRACT_SYSTEM, extractionJsonSchema, toExtraction, tryModels, withTimeout, type JsonSchema } from "@shared/ai";
 import { app } from "./firebase";
 
 // Gemini through Firebase AI Logic ("Gemini Developer API", free Spark plan).
@@ -31,7 +28,7 @@ async function askModel(model: string, system: string, user: string, schema: Jso
 const generateJson = (system: string, user: string, schema: JsonSchema) =>
   tryModels((model) => askModel(model, system, user, schema));
 
-// Both functions below never throw: on any problem they return { ok: false },
+// extractReport never throws: on any problem it returns { ok: false },
 // and the app carries on without AI (the coordinator reads the message).
 
 export async function extractReport({ text }: ExtractRequest): Promise<ExtractResponse> {
@@ -43,12 +40,3 @@ export async function extractReport({ text }: ExtractRequest): Promise<ExtractRe
   }
 }
 
-export async function clarifyReport({ text, extraction }: ClarifyRequest): Promise<ClarifyResponse> {
-  if (!navigator.onLine) return { ok: false, error: "offline" };
-  try {
-    const raw = await generateJson(CLARIFY_SYSTEM, clarifyPrompt(text, extraction.missingFields), clarifyJsonSchema);
-    return { ok: true, question: toQuestion(raw) };
-  } catch (err) {
-    return { ok: false, error: String(err) };
-  }
-}

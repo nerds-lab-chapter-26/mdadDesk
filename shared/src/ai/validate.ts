@@ -12,6 +12,7 @@ const extractionShape = z.object({
   helpRequested: z.string().nullable().default(null),
   summary: z.string(),
   language: z.string().min(2).max(12),
+  question: z.string().nullable().default(null),
 });
 
 /** Checks Gemini's answer and works out missingFields ourselves (we don't trust the model's list). */
