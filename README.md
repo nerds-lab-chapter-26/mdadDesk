@@ -87,8 +87,10 @@ React 19 + TypeScript + Vite + Tailwind v4 (PWA) · Firebase Hosting, Firestore,
 Gemini via Firebase AI Logic · Leaflet + OpenStreetMap · cobe globe · lucide-react icons
 
 ## Known issues
-- AI extraction currently fails on the live site (App Check key setup); SOS reports still arrive and
-  the full help loop works, but card fields show "Unknown". Tracked in [docs/bug-fix.md](docs/bug-fix.md).
+- The `api/` service (Express, for Cloud Run) is ready but not deployed: the app runs on the free
+  Spark plan, and Gemini is called through Firebase AI Logic instead. Cloud Run is the scale-up path.
+- The coordinator cannot yet edit AI-filled fields by hand ([#1](https://github.com/Maryam593/mdadDesk/issues/1)).
+- Tested by the team only; not yet with a real rescue service or building staff.
 
 ## Contributing
 Issues and pull requests are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md).
