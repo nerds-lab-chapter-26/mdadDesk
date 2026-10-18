@@ -168,3 +168,4 @@
 - Demo video v2 (3:10): adds problem card, Google Cloud stack card and Firebase console tour (Hosting, Auth, Firestore collections; deploy email blurred). Rules need 3-4 min.
 - README Known issues refreshed after the project review: AI works live now; listed what is still open (Cloud Run not deployed, no manual field edit (#1), no real-user test).
 - Issue #5 closed: README, how-to-start and .env.example now say where the offline SMS goes (coordinator's phone, not the Desk) and what an empty number does.
+- AI now reads any Asia-Pacific language (prompt, language field = ISO code; UI hint says Any language). Eval set grown to 30 (10 new: Hindi, Bengali, Bahasa x2, Tagalog, Thai, Vietnamese, Chinese, Japanese, Korean). Eval 18 Oct: 93.3% (140/150), 0 invented, 0/30 failures. Closes #2.

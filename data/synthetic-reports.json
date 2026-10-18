@@ -18,5 +18,15 @@
   { "id": "s17", "text": "Bijli chali gayi hai aur andhera hai, 4th floor, 6 log", "expected": { "incidentType": "other", "building": null, "floor": "4", "landmark": null, "peopleReported": 6 } },
   { "id": "s18", "text": "Kisi ko saans lene mein mushkil ho rahi hai dhuain ki wajah se, shop 7", "expected": { "incidentType": "medical", "building": null, "floor": null, "landmark": "shop 7", "peopleReported": 1 } },
   { "id": "s19", "text": "jaldi aao", "expected": { "incidentType": null, "building": null, "floor": null, "landmark": null, "peopleReported": null } },
-  { "id": "s20", "text": "Trade centre ke peeche wale gate ke paas wall crack ho gayi, log bahar nikal rahe hain", "expected": { "incidentType": "collapse", "building": null, "floor": null, "landmark": "back gate", "peopleReported": null } }
+  { "id": "s20", "text": "Trade centre ke peeche wale gate ke paas wall crack ho gayi, log bahar nikal rahe hain", "expected": { "incidentType": "collapse", "building": null, "floor": null, "landmark": "back gate", "peopleReported": null } },
+  {"id": "s21", "text": "तीसरी मंजिल पर दुकान 12 के पास आग लगी है, 4 लोग फंसे हैं", "expected": {"incidentType": "fire", "building": null, "floor": "3", "landmark": "shop 12", "peopleReported": 4}},
+  {"id": "s22", "text": "দ্বিতীয় তলায় ধোঁয়া দেখা যাচ্ছে, আমরা ২ জন আছি", "expected": {"incidentType": "smoke", "building": null, "floor": "2", "landmark": null, "peopleReported": 2}},
+  {"id": "s23", "text": "Kebakaran di lantai 5 Plaza Senayan dekat food court!", "expected": {"incidentType": "fire", "building": "Plaza Senayan", "floor": "5", "landmark": "food court", "peopleReported": null}},
+  {"id": "s24", "text": "May sunog sa ground floor ng SM Megamall, malapit sa parking. 6 kami dito.", "expected": {"incidentType": "fire", "building": "SM Megamall", "floor": "G", "landmark": "parking", "peopleReported": 6}},
+  {"id": "s25", "text": "มีควันที่ชั้น 4 ใกล้ร้าน 8 ค่ะ", "expected": {"incidentType": "smoke", "building": null, "floor": "4", "landmark": "shop 8", "peopleReported": null}},
+  {"id": "s26", "text": "Cháy ở tầng 2, gần cửa hàng số 15. Có 3 người bị mắc kẹt.", "expected": {"incidentType": "fire", "building": null, "floor": "2", "landmark": "shop 15", "peopleReported": 3}},
+  {"id": "s27", "text": "七楼12号店旁边，一个人晕倒了。", "expected": {"incidentType": "medical", "building": null, "floor": "7", "landmark": "shop 12", "peopleReported": 1}},
+  {"id": "s28", "text": "3階の20番店舗の近くで煙が出ています。", "expected": {"incidentType": "smoke", "building": null, "floor": "3", "landmark": "shop 20", "peopleReported": null}},
+  {"id": "s29", "text": "지하 주차장에 불이 났어요! 5명이 있어요", "expected": {"incidentType": "fire", "building": null, "floor": "B", "landmark": "parking", "peopleReported": 5}},
+  {"id": "s30", "text": "Tolong! Ada asap, saya takut.", "expected": {"incidentType": "smoke", "building": null, "floor": null, "landmark": null, "peopleReported": null}}
 ]

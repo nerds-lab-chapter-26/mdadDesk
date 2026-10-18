@@ -5,7 +5,7 @@
 
 ## Problem
 During a building emergency, a coordinator gets overlapping, incomplete, multilingual messages
-(English / Urdu / Roman Urdu). Floor, shop and people counts are often missing, duplicates and
+(English / Urdu / Roman Urdu, and other Asia-Pacific languages since 18 Oct). Floor, shop and people counts are often missing, duplicates and
 contradictions pile up, and nobody has a shared view of who owns which task.
 
 ## Users

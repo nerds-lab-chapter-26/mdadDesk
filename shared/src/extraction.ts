@@ -13,7 +13,7 @@ export interface Extraction {
   peopleReported: number | null;
   helpRequested: string | null;
   summary: string;
-  language: "en" | "ur" | "roman-ur" | "mixed";
+  language: string; // ISO code ("en", "ja", "id" ...), "roman-ur" or "mixed"
   missingFields: LocationField[];
 }
 

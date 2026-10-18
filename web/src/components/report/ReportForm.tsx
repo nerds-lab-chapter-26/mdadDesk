@@ -35,7 +35,7 @@ export function ReportForm({ onSubmit, disabled }: Props) {
       <div>
         <StepLabel n={1}>Add details if you can (optional)</StepLabel>
         <TextArea
-          label="Where exactly, how many people? English, اردو or Roman Urdu"
+          label="Where exactly, how many people? Any language"
           rows={3}
           maxLength={2000}
           value={text}

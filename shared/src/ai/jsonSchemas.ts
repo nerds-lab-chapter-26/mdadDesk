@@ -18,7 +18,7 @@ export const extractionJsonSchema: JsonSchema = {
     peopleReported: { type: ["integer", "null"] },
     helpRequested: textOrNull,
     summary: { type: "string" },
-    language: { type: "string", enum: ["en", "ur", "roman-ur", "mixed"] },
+    language: { type: "string" }, // ISO code like "ja", or "roman-ur" / "mixed"
     missingFields: { type: "array", items: { type: "string", enum: [...LOCATION_FIELDS] } },
   },
   required: ["incidentType", "building", "floor", "landmark", "peopleReported", "summary", "language", "missingFields"],

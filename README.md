@@ -17,8 +17,8 @@ Want to help? Read [CONTRIBUTING.md](CONTRIBUTING.md). AI agents: see [AGENTS.md
 ## How it works
 1. **Reporter** (no login): opens the app, taps an SOS card (Fire, Medical, Trapped, …), flips it and
    sends. Location is asked for when the page opens, so the SOS carries GPS at once.
-2. **AI** (Gemini) reads the free-text message (English / Urdu / Roman Urdu) and fills the incident
-   card. Anything not said stays "Unknown"; AI never invents details and never dispatches.
+2. **AI** (Gemini) reads the free-text message in any Asia-Pacific language (English, Urdu,
+   Roman Urdu, Hindi, Bahasa, Japanese …) and fills the incident card. Anything not said stays "Unknown"; AI never invents details and never dispatches.
 3. **Coordinator** (Desk): sees new incidents on a map, verifies (or holds to close a false alarm),
    then sends the right agencies.
 4. **Agency** (Inbox): a siren and a request appear next to a live globe; staff tap "On the way".

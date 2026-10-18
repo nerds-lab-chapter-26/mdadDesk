@@ -34,7 +34,7 @@ export const TOURS: Record<TourId, TourStep[]> = {
   report: [
     TABS,
     { icon: Siren, title: "Need help? Two taps.", text: "Tap what is happening (Fire, Medical…). The card turns over: tap Send SOS." },
-    { icon: PenLine, title: "Add details first if you can", text: "Floor, shop, how many people. Any language: English, اردو or Roman Urdu." },
+    { icon: PenLine, title: "Add details first if you can", text: "Floor, shop, how many people. Any language: English, اردو, Roman Urdu, हिन्दी, Bahasa, 日本語 and more." },
     { icon: MapPin, title: "Allow location", text: "Your phone's location helps rescuers find you faster." },
     FLOW,
     { icon: Truck, title: "Keep this page open", text: "A green screen tells you each time help moves closer." },

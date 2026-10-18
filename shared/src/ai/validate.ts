@@ -11,7 +11,7 @@ const extractionShape = z.object({
   peopleReported: z.number().int().nonnegative().nullable(),
   helpRequested: z.string().nullable().default(null),
   summary: z.string(),
-  language: z.enum(["en", "ur", "roman-ur", "mixed"]),
+  language: z.string().min(2).max(12),
 });
 
 /** Checks Gemini's answer and works out missingFields ourselves (we don't trust the model's list). */
