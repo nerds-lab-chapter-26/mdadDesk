@@ -100,7 +100,9 @@ on a real iPhone (14 Oct).
 
 **No internet on the reporter's phone:** a red box offers **Send by SMS** (goes to `VITE_SOS_SMS_NUMBER`
 in `web/.env`, the coordinator's phone; set for the demo on 14 Oct) and **Call 1122**. After changing the
-number: build + deploy again.
+number: build + deploy again. The SMS does **not** appear on the Desk; the coordinator reads it on that
+phone and can create the case by hand. If the number is empty, the SMS app opens with the message
+written and the reporter chooses who to send it to.
 
 ## 7. Change and deploy
 - Code rules (≤60 lines per file, no repetition, beginner-readable): `docs/core-structure.md`.

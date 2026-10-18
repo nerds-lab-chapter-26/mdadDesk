@@ -29,7 +29,8 @@ Want to help? Read [CONTRIBUTING.md](CONTRIBUTING.md). AI agents: see [AGENTS.md
 - Role-based pages: public sees "Report SOS", coordinator sees "Desk", agency sees "Inbox"
   (enforced in the app and in `firestore.rules`).
 - **No internet?** After 5 seconds without delivery the reporter gets "Send by SMS" (pre-written
-  with location) and "Call 1122 (free)".
+  with location) and "Call 1122 (free)". The SMS goes to the coordinator's phone (`VITE_SOS_SMS_NUMBER`),
+  not to the Desk: the coordinator reads it on that phone.
 - Installable PWA, works on phones, guided tours on first visit, calm UI with lucide icons.
 - If AI fails, the SOS is still delivered; fields simply show "Unknown" for the coordinator to confirm.
 - Accuracy check: `npm run eval` scores the AI on 20 labeled reports (last run 92.6%, 0 invented values).
