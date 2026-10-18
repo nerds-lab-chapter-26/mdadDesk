@@ -167,3 +167,4 @@
 - Submission deck filled from the AI Builder Cup template (14 slides; eval rerun 17 Oct: 92%, 0 invented, 0/20 failures). File kept outside the repo (Downloads).
 - Demo video v2 (3:10): adds problem card, Google Cloud stack card and Firebase console tour (Hosting, Auth, Firestore collections; deploy email blurred). Rules need 3-4 min.
 - README Known issues refreshed after the project review: AI works live now; listed what is still open (Cloud Run not deployed, no manual field edit (#1), no real-user test).
+- Issue #5 closed: README, how-to-start and .env.example now say where the offline SMS goes (coordinator's phone, not the Desk) and what an empty number does.
