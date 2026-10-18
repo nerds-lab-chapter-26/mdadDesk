@@ -3,7 +3,7 @@ import type { IncidentType } from "@shared";
 import { isFirebaseConfigured } from "@/lib/firebase";
 import { askNotificationPermission } from "@/lib/systemNotify";
 import { newReportId } from "@/services/reports";
-import { deliver, readWithAi, type SubmitState } from "./submitSteps";
+import { deliver, readWithAi, shareLocation, type SubmitState } from "./submitSteps";
 
 const INITIAL: SubmitState = {
   delivery: null,
@@ -41,5 +41,7 @@ export function useReportSubmit() {
     await readWithAi(id, text, live, patch);
   };
 
-  return { ...state, submit, reset: () => setState(INITIAL) };
+  const retryLocation = () => state.reportId && shareLocation(state.reportId, patch);
+
+  return { ...state, submit, retryLocation, reset: () => setState(INITIAL) };
 }

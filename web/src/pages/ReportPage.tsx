@@ -11,7 +11,8 @@ import { useReportSubmit } from "@/hooks/useReportSubmit";
 import { Tour } from "@/components/tour/Tour";
 
 export function ReportPage() {
-  const { delivery, ai, extraction, question, location, reportId, message, point, submit } = useReportSubmit();
+  const { delivery, ai, extraction, question, location, reportId, message, point, submit, retryLocation } =
+    useReportSubmit();
 
   return (
     <div className="mx-auto max-w-2xl space-y-4">
@@ -26,7 +27,7 @@ export function ReportPage() {
         <ReportForm onSubmit={submit} disabled={delivery === "pending" || ai === "pending"} />
       </Card>
       {delivery === "pending" && message && <OfflineFallback message={message} point={point} />}
-      <SubmitStatus delivery={delivery} ai={ai} location={location} />
+      <SubmitStatus delivery={delivery} ai={ai} location={location} onRetryLocation={retryLocation} />
       {reportId && <LiveStatus reportId={reportId} />}
       {extraction && (
         <Card title="What we understood">

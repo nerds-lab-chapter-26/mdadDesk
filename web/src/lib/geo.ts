@@ -1,16 +1,8 @@
 import type { GeoPoint } from "@shared";
 
-/**
- * Asks the phone for its GPS position. The browser shows "Allow location?" the first time.
- * Gives up after 10 seconds. Returns null if refused or unavailable: the SOS is sent anyway.
- * Note: GPS knows the street, not the floor, so floor / shop still come from the message.
- */
-export function getLocation(): Promise<GeoPoint | null> {
+/** One try at the phone's position. Returns null if refused, off or too slow. */
+function askOnce(highAccuracy: boolean, timeout: number): Promise<GeoPoint | null> {
   return new Promise((resolve) => {
-    if (!("geolocation" in navigator)) {
-      resolve(null);
-      return;
-    }
     navigator.geolocation.getCurrentPosition(
       (pos) =>
         resolve({
@@ -19,9 +11,21 @@ export function getLocation(): Promise<GeoPoint | null> {
           accuracyM: Math.round(pos.coords.accuracy),
         }),
       () => resolve(null),
-      { enableHighAccuracy: true, timeout: 10_000, maximumAge: 60_000 },
+      { enableHighAccuracy: highAccuracy, timeout, maximumAge: 60_000 },
     );
   });
+}
+
+/**
+ * Asks the phone for its position. The browser shows "Allow location?" the first time.
+ * Try 1: exact GPS (10 s). Try 2: rough Wi-Fi / mobile-tower position (15 s), because a new
+ * phone indoors often has no GPS fix yet. Returns null if both fail: the SOS is sent anyway.
+ * Note: GPS knows the street, not the floor, so floor / shop still come from the message.
+ */
+export async function getLocation(): Promise<GeoPoint | null> {
+  if (!("geolocation" in navigator)) return null;
+  const exact = await askOnce(true, 10_000);
+  return exact ?? askOnce(false, 15_000);
 }
 
 /** Free link that opens the spot in Google Maps (no API key needed). */

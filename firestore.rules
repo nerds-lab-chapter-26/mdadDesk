@@ -28,6 +28,8 @@ service cloud.firestore {
         // the reporter's phone saves what the AI understood and its GPS location
         || (resource.data.status == 'reported' && onlyChanges([
           'incidentType', 'building', 'floor', 'landmark', 'peopleReported', 'summary', 'location', 'updatedAt']))
+        // a late GPS ("Try again") may still arrive after the coordinator verified
+        || (resource.data.status in ['verified', 'response'] && onlyChanges(['location', 'updatedAt']))
         // an agency that was asked for help taps "On the way"
         || (isAgency() && hasAssignment()
           && resource.data.status in ['verified', 'response']

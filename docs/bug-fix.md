@@ -11,6 +11,15 @@ Add newest entries at the top. Format:
 ```
 
 ---
+## 2026-10-18 — SOS from a new phone arrived without GPS (no map pin)
+**Symptom:** A tester on a new phone sent an SOS; the coordinator saw "No GPS location" and no map pin.
+**Cause:** The incident had no GPS event at all: the phone gave no position within 10 s (exact GPS only,
+cold GPS indoors or phone Location switched off) and the app gave up with no way to retry.
+**Fix:** `web/src/lib/geo.ts` retries with the rough Wi-Fi / mobile-tower position (15 s). The "Location not
+shared" notice now says to switch on phone Location and has a **Try again** button
+(`submitSteps.shareLocation`). `firestore.rules` lets that late GPS land after the coordinator verified.
+**Check:** typecheck + build pass. Manual: phone Location off → send SOS → notice shows → turn Location on →
+Try again → "Location shared" and the pin appears on the Desk.
 ## 2026-10-18 — Follow-up question not shown on the report page
 **Symptom:** after a Japanese SOS with no building name, "What we understood" showed the fields but no follow-up question.
 **Cause:** the question came from a second Gemini call (clarify). In the browser it failed quietly (likely free-tier quota or timeout right after the first call), and the failure was not shown or logged.

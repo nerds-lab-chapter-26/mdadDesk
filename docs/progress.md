@@ -170,3 +170,5 @@
 - Issue #5 closed: README, how-to-start and .env.example now say where the offline SMS goes (coordinator's phone, not the Desk) and what an empty number does.
 - AI now reads any Asia-Pacific language (prompt, language field = ISO code; UI hint says Any language). Eval set grown to 30 (10 new: Hindi, Bengali, Bahasa x2, Tagalog, Thai, Vietnamese, Chinese, Japanese, Korean). Eval 18 Oct: 93.3% (140/150), 0 invented, 0/30 failures. Closes #2.
 - Follow-up question now comes from the same Gemini call as the fields (one call instead of two); shown under What we understood on the report page. Eval 92.7%, 0 invented.
+
+- 18 Oct (evening): GPS retry (rough position fallback) + "Try again" button after a tester's new phone sent an SOS without GPS. Rules allow a late GPS after verify.

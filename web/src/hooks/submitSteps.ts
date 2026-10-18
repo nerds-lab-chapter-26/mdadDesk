@@ -27,6 +27,12 @@ export function deliver(id: string, text: string, type: IncidentType, patch: Pat
   sendReport(id, text, Date.now(), type)
     .then(() => patch({ delivery: "sent" }))
     .catch(() => patch({ delivery: "failed" }));
+  shareLocation(id, patch);
+}
+
+/** Adds the phone's GPS to the SOS. Also used by the "Try again" button when it failed. */
+export function shareLocation(id: string, patch: Patch) {
+  patch({ location: "pending" });
   getLocation().then((point) => {
     patch({ location: point ? "shared" : "off", point });
     if (point) attachLocation(id, point).catch(console.error);
