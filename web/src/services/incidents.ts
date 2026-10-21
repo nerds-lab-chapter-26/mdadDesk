@@ -3,7 +3,7 @@ import type { Incident, IncidentEventKind, IncidentStatus } from "@shared";
 import { requireDb } from "@/lib/firebase";
 import { addEvent } from "./events";
 
-type EditableFields = Partial<Pick<Incident, "incidentType" | "building" | "floor" | "landmark" | "peopleReported">>;
+export type EditableFields = Partial<Pick<Incident, "incidentType" | "building" | "floor" | "landmark" | "peopleReported">>;
 
 /**
  * One write path for every incident change, so each change also lands on the timeline.

@@ -4,17 +4,18 @@
 import { initializeApp } from "firebase-admin/app";
 import { getAuth } from "firebase-admin/auth";
 import { getFirestore } from "firebase-admin/firestore";
-import type { Agency, AgencyKind } from "../../shared/src";
+import type { Agency } from "../../shared/src";
 
 initializeApp({ projectId: process.env.GOOGLE_CLOUD_PROJECT });
 // The password lives only in api/.env (never in the repo, which is public).
 const PASSWORD = process.env.DEMO_PASSWORD;
 if (!PASSWORD) throw new Error("Set DEMO_PASSWORD in api/.env first");
 
-const AGENCIES: Array<{ id: string; name: string; kind: AgencyKind; available: boolean }> = [
-  { id: "fire-saddar", name: "Saddar Fire Station", kind: "fire", available: true },
-  { id: "ambulance-1", name: "City Ambulance Service", kind: "ambulance", available: false },
-  { id: "police-saddar", name: "Saddar Police", kind: "police", available: true },
+// Station locations are made up, a short drive from the demo building (web/src/lib/building.ts).
+const AGENCIES: Array<Omit<Agency, "availabilityUpdatedAt">> = [
+  { id: "fire-saddar", name: "Saddar Fire Station", kind: "fire", available: true, location: { lat: 24.8611, lng: 67.0219 } },
+  { id: "ambulance-1", name: "City Ambulance Service", kind: "ambulance", available: false, location: { lat: 24.848, lng: 67.033 } },
+  { id: "police-saddar", name: "Saddar Police", kind: "police", available: true, location: { lat: 24.8627, lng: 67.035 } },
 ];
 
 const USERS = [

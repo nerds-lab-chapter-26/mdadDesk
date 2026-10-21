@@ -1,4 +1,4 @@
-import type { InputHTMLAttributes, ReactNode, TextareaHTMLAttributes } from "react";
+import type { InputHTMLAttributes, ReactNode, SelectHTMLAttributes, TextareaHTMLAttributes } from "react";
 
 // Same look for every input box in the app. Change it here to change it everywhere.
 const BOX_STYLE =
@@ -19,6 +19,15 @@ export function TextInput({ label, ...inputProps }: InputHTMLAttributes<HTMLInpu
   return (
     <Labelled label={label}>
       <input {...inputProps} className={BOX_STYLE} />
+    </Labelled>
+  );
+}
+
+// Drop-down list, e.g. the incident type.
+export function SelectInput({ label, ...selectProps }: SelectHTMLAttributes<HTMLSelectElement> & { label: string }) {
+  return (
+    <Labelled label={label}>
+      <select {...selectProps} className={BOX_STYLE} />
     </Labelled>
   );
 }

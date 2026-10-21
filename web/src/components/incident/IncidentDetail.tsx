@@ -2,6 +2,7 @@ import type { Incident, IncidentStatus } from "@shared";
 import { Card } from "@/components/ui/Card";
 import { LocationLine } from "./LocationLine";
 import { FieldGrid } from "./FieldGrid";
+import { EditFields } from "./EditFields";
 import { StatusBadge } from "./StatusBadge";
 import { IncidentActions } from "./IncidentActions";
 import { DispatchPanel } from "./DispatchPanel";
@@ -25,6 +26,7 @@ export function IncidentDetail({ incident, onSetStatus, live }: Props) {
         {live && <DispatchPanel incident={incident} />}
         <CloseFalseAlarm incident={incident} onSetStatus={onSetStatus} />
         <FieldGrid values={incident} />
+        {live && <EditFields key={incident.id} incident={incident} />}
         <LocationLine location={incident.location} />
         {live && (
           <div>

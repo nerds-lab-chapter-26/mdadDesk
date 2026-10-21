@@ -23,7 +23,7 @@ export function EmergencyAlert({ title, body, onClose, children }: Props) {
   }, []);
 
   return (
-    <Overlay tone="danger">
+    <Overlay tone="danger" label={title}>
       <h2 className="flex items-center justify-center gap-3 text-3xl font-black tracking-wide text-white">
         <Siren size={34} aria-hidden /> {title}
       </h2>

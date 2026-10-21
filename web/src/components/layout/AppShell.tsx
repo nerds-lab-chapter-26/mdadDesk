@@ -13,9 +13,9 @@ export function AppShell() {
         <StatusBanners />
         <Outlet />
       </main>
-      <footer className="pb-20 pt-2 text-center text-xs text-slate-500">
+      <footer className="pb-20 pt-2 text-center text-xs text-slate-600">
         Prototype for drills and demos. In real danger also call 1122 · 16 · 15.
-        <span className="mt-1 block text-[10px] text-slate-400">Version {__BUILD_TIME__} UTC</span>
+        <span className="mt-1 block text-[11px] text-slate-600">Version {__BUILD_TIME__} UTC</span>
       </footer>
     </div>
   );

@@ -32,8 +32,10 @@ Want to help? Read [CONTRIBUTING.md](CONTRIBUTING.md). AI agents: see [AGENTS.md
   with location) and "Call 1122 (free)". The SMS goes to the coordinator's phone (`VITE_SOS_SMS_NUMBER`),
   not to the Desk: the coordinator reads it on that phone.
 - Installable PWA, works on phones, guided tours on first visit, calm UI with lucide icons.
+- The coordinator can fix any AI-filled field by hand ("Edited: ..." lands on the timeline).
+- Accessible: Lighthouse Accessibility 100 on `/` and `/login`; the SOS cards work with the keyboard only.
 - If AI fails, the SOS is still delivered; fields simply show "Unknown" for the coordinator to confirm.
-- Accuracy check: `npm run eval` scores the AI on 20 labeled reports (last run 92.6%, 0 invented values).
+- Accuracy check: `npm run eval` scores the AI on 30 labeled reports (English, Urdu, Roman Urdu + 9 Asia-Pacific languages) (last run 93.3%, 0 invented values).
 
 ## Quick start (local)
 ```bash
@@ -90,7 +92,6 @@ Gemini via Firebase AI Logic · Leaflet + OpenStreetMap · cobe globe · lucide-
 ## Known issues
 - The `api/` service (Express, for Cloud Run) is ready but not deployed: the app runs on the free
   Spark plan, and Gemini is called through Firebase AI Logic instead. Cloud Run is the scale-up path.
-- The coordinator cannot yet edit AI-filled fields by hand ([#1](https://github.com/Maryam593/mdadDesk/issues/1)).
 - Tested by the team only; not yet with a real rescue service or building staff.
 
 ## Contributing

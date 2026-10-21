@@ -21,7 +21,7 @@ export function Tour({ id }: { id: TourId }) {
         onClick={restart}
         aria-label="How it works"
         title="How it works"
-        className="fixed bottom-4 right-4 z-[1500] grid h-12 w-12 place-items-center rounded-full bg-emerald-500 text-2xl font-extrabold text-white shadow-lg transition hover:bg-emerald-600"
+        className="fixed bottom-4 right-4 z-[1500] grid h-12 w-12 place-items-center rounded-full bg-emerald-700 text-2xl font-extrabold text-white shadow-lg transition hover:bg-emerald-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
       >
         ?
       </button>
@@ -31,7 +31,7 @@ export function Tour({ id }: { id: TourId }) {
   const step = steps[index];
   const isLast = index === steps.length - 1;
   return (
-    <Overlay tone="neutral">
+    <Overlay tone="neutral" label="How it works">
       <Card>
         <div className="space-y-3 text-center">
           <span className="mx-auto grid h-16 w-16 place-items-center rounded-full bg-brand-soft text-brand">
@@ -39,7 +39,7 @@ export function Tour({ id }: { id: TourId }) {
           </span>
           <h2 className="text-lg font-semibold">{step.title}</h2>
           <p className="text-sm text-slate-600">{step.text}</p>
-          <p className="text-xs text-slate-400">
+          <p className="text-xs text-slate-500">
             {index + 1} / {steps.length}
           </p>
           <div className="flex justify-center gap-2">

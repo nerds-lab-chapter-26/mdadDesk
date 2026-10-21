@@ -40,9 +40,9 @@ function GoodNews({ icons, text, tip, onClose }: GoodNewsProps) {
   }, []);
 
   return (
-    <Overlay tone="good">
+    <Overlay tone="good" label="Help is coming">
       <div className="space-y-4 text-center text-white">
-        <div className="flex animate-bounce justify-center gap-3">
+        <div className="flex justify-center gap-3 motion-safe:animate-bounce">
           {icons.map((Icon, i) => (
             <span key={i} className="grid h-20 w-20 place-items-center rounded-full bg-white/15 ring-2 ring-white/40">
               <Icon size={42} aria-hidden />

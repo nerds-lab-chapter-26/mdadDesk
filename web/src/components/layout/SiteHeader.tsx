@@ -34,7 +34,7 @@ export function SiteHeader() {
           onClick={() => setMenuOpen(!menuOpen)}
           className="grid h-11 w-11 place-items-center rounded-xl text-white hover:bg-white/10 sm:hidden"
         >
-          {menuOpen ? <X size={24} /> : <Menu size={24} />}
+          {menuOpen ? <X size={24} aria-hidden /> : <Menu size={24} aria-hidden />}
         </button>
       </div>
       {menuOpen && (

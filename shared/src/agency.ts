@@ -9,6 +9,7 @@ export interface Agency {
   kind: AgencyKind;
   available: boolean;
   availabilityUpdatedAt: number;
+  location?: GeoPoint; // the station; the agency globe draws its arcs from here
 }
 
 export type AssignmentStatus = "notified" | "acknowledged" | "accepted" | "declined" | "busy";

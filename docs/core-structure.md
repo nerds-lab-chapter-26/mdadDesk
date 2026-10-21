@@ -45,14 +45,14 @@ web/               React + Vite + Tailwind v4 + PWA (vite-plugin-pwa)
                    Backdrop (calm gradient + soft glows + faint dot grid, no movement),
                    RoleGate (right account or a clear message)
     coordinator/   CoordinatorDesk (alerts + map + list + detail)
-    incident/      FieldGrid, StatusBadge, IncidentList, IncidentDetail, IncidentActions, DispatchPanel, CloseFalseAlarm (confirmed close), Timeline,
+    incident/      FieldGrid, EditFields (coordinator fixes AI fields; lib/fieldDraft.ts), StatusBadge, IncidentList, IncidentDetail, IncidentActions, DispatchPanel, CloseFalseAlarm (confirmed close), Timeline,
                    LocationLine (GPS ± metres + "Open in Google Maps")
     track/         LiveStatus (live card, on report page + /track), HelpProgress (checklist),
                    HelpSplash (green good-news screen + chime), MyReports (links on the report page)
     login/         LoginHero (navy brand panel), LoginForm (demo-account chips, show password)
     tour/          Tour (first-visit guide per page + "How it works" button; text in lib/tours.ts)
     agency/        AgencyInbox (requests for the signed-in agency), AssignmentCard (one request + "On the way"),
-                   GlobePanel + RequestGlobe (grey cobe globe: red dot + arc from the station per live request;
+                   GlobePanel + RequestGlobe (grey cobe globe: red dot + arc from the agency's own station (agencies/{id}.location) per live request;
                    settings in lib/globe.ts)
     alert/         EmergencyAlert (red flashing screen + siren), NewSosAlert (coordinator),
                    NewRequestAlert (agency)
@@ -109,7 +109,7 @@ Tabs are only convenience: the real protection is `firestore.rules` + `RoleGate`
   PNG in GitHub → Settings → General → Social preview (GitHub has no API for it).
 - Logo = `web/public/icon.svg` (pin + help cross + signal waves). Phone install icons are PNG copies
   (`icon-192/512.png`, `icon-maskable-512.png`, `apple-touch-icon.png`): re-make them if the logo changes.
-- SOS cards (FlipTile + `.flip` CSS, `useTilt`): tap → springy flip with a light sweep → "Send SOS" / Cancel
+- SOS cards (FlipTile + `.flip` CSS, `useTilt`, `useFlip` for keyboard focus): tap → springy flip with a light sweep → "Send SOS" / Cancel
   on the back (style of kokonutui "card flip", rebuilt small without extra libraries).
 
 - Credit line is only in README.md (`<!-- taggie -->` block, managed by the taggie CLI), not in the app.

@@ -172,3 +172,9 @@
 - Follow-up question now comes from the same Gemini call as the fields (one call instead of two); shown under What we understood on the report page. Eval 92.7%, 0 invented.
 
 - 18 Oct (evening): GPS retry (rough position fallback) + "Try again" button after a tester's new phone sent an SOS without GPS. Rules allow a late GPS after verify.
+
+## 2026-10-21
+- #1 Coordinator can edit AI fields: "Edit details" on the incident (EditFields + lib/fieldDraft.ts), saves only changed fields, timeline shows "Edited: ...".
+- #3 "Not now" on the location banner is remembered for 7 days (lib/snooze.ts, localStorage in try/catch).
+- #4 Each agency has its own station (Agency.location, seed + live agency docs); the globe draws arcs from it, demo building as fallback.
+- #6 Accessibility: dialogs named (Overlay label), contrast fixes (footer, tour counter, "?" button), SOS card keyboard flow (inert hidden face, focus to Send / back on Cancel, useFlip), pulse/bounce only for motion-safe. Lighthouse Accessibility: / 92 -> 100, /login 96 -> 100.

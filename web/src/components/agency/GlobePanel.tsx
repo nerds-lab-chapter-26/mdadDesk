@@ -11,7 +11,7 @@ const isLive = (a: Assignment) =>
   a.status === "notified" || (a.status === "accepted" && Date.now() - a.updatedAt < THREE_HOURS);
 
 /** Side panel of the agency inbox: live count + the globe with a dot and arc per live request. */
-export function GlobePanel({ assignments }: { assignments: Assignment[] }) {
+export function GlobePanel({ assignments, station }: { assignments: Assignment[]; station: GeoPoint }) {
   const points: GeoPoint[] = [];
   for (const a of assignments) {
     if (isLive(a)) points.push(a.location ?? DEMO_BUILDING); // no GPS: the demo building
@@ -29,7 +29,7 @@ export function GlobePanel({ assignments }: { assignments: Assignment[] }) {
           {points.length === 0 ? "All quiet. New requests arrive with a siren." : `${waiting} waiting for you`}
         </p>
       </div>
-      <RequestGlobe points={points} />
+      <RequestGlobe points={points} station={station} />
       <p className="flex flex-wrap justify-center gap-x-4 gap-y-1 text-xs text-slate-400">
         <span><span className="text-danger">●</span> Request</span>
         <span><span className="text-brand">●</span> Your station</span>

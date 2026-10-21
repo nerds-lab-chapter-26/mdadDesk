@@ -3,6 +3,7 @@ import { MapPin } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { useLocationPermission } from "@/hooks/useLocationPermission";
 import { getLocation } from "@/lib/geo";
+import { isLocationSnoozed, snoozeLocation } from "@/lib/snooze";
 
 /**
  * Asks for location as soon as the report page opens, BEFORE an emergency, so that later the SOS
@@ -10,7 +11,7 @@ import { getLocation } from "@/lib/geo";
  */
 export function LocationPrompt() {
   const permission = useLocationPermission();
-  const [hidden, setHidden] = useState(false);
+  const [hidden, setHidden] = useState(isLocationSnoozed);
   const [asking, setAsking] = useState(false);
   if (permission === "checking" || permission === "granted" || hidden) return null;
 
@@ -19,6 +20,11 @@ export function LocationPrompt() {
     const point = await getLocation(); // shows the phone's "Allow location?" question
     setAsking(false);
     if (point) setHidden(true);
+  };
+
+  const notNow = () => {
+    snoozeLocation(); // remembered for 7 days on this phone
+    setHidden(true);
   };
 
   const blocked = permission === "denied";
@@ -37,7 +43,7 @@ export function LocationPrompt() {
       </div>
       <div className="flex gap-2">
         {!blocked && <Button busy={asking} onClick={turnOn}>Turn on location</Button>}
-        <Button variant="ghost" onClick={() => setHidden(true)}>Not now</Button>
+        <Button variant="ghost" onClick={notNow}>Not now</Button>
       </div>
     </section>
   );
