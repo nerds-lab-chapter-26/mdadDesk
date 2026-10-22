@@ -85,7 +85,6 @@ Details: [docs/core-structure.md](docs/core-structure.md).
 - [docs/deployment.md](docs/deployment.md) — put it online, test links
 - [docs/testing-e2e.md](docs/testing-e2e.md) — step-by-step test checklist
 - [docs/testing-user.md](docs/testing-user.md) — testing with real people
-- [docs/demo-video.md](docs/demo-video.md) — 2-minute demo video script and shot list
 
 ## Stack
 React 19 + TypeScript + Vite + Tailwind v4 (PWA) · Firebase Hosting, Firestore, Auth, App Check ·
