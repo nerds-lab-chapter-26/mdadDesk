@@ -8,7 +8,6 @@ Fire / Ambulance / Police, the agency taps "On the way", and the reporter sees e
 
 > Prototype for drills and demos only — not a deployed emergency service. In a real emergency call **1122**.
 **Live demo:** https://mdaddeskv1-6af42.web.app (installable as an app on Android and iPhone).  
-**Demo video:** https://youtu.be/pCWMN7QPfQo  
 Staff demo logins are shared privately with judges and testers.
 
 **New here?** Start with [docs/how-to-start.md](docs/how-to-start.md) (setup, accounts, demo script).
