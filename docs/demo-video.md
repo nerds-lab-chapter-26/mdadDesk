@@ -30,5 +30,5 @@ Goal: a judge understands the problem, sees the full help loop live, and remembe
 - Use a realistic message for the reporter, e.g. `2nd floor shop 24 ke paas dhuaan hai, hum 3 log hain`.
 - If AI fields still show Unknown on the day, use an SOS card without text and say:
   "fields stay Unknown until someone says them". Don't fake filled fields.
-- End card: https://mdaddeskv1-6af42.web.app and https://github.com/Maryam593/mdadDesk.
+- End card: https://mdaddeskv1-6af42.web.app and https://github.com/nerds-lab-chapter-26/mdadDesk.
 - Never show a password or the `.env` files on screen.

@@ -2,7 +2,7 @@
 
 For anyone new to MadadDesk, human or AI agent. Read this first, then the other docs as needed.
 
-**Live app:** https://mdaddeskv1-6af42.web.app · **Code:** https://github.com/Maryam593/mdadDesk
+**Live app:** https://mdaddeskv1-6af42.web.app · **Code:** https://github.com/nerds-lab-chapter-26/mdadDesk
 
 ## 1. What it is, in one minute
 Someone in a building emergency taps a card (🔥 Fire, 🚑 Medical…), it flips, they tap Send SOS. Their SOS + phone location
@@ -18,7 +18,7 @@ Gemini (AI) only reads the message (floor, shop, people); **humans decide and di
 
 ## 2. Run it on your PC
 ```
-git clone https://github.com/Maryam593/mdadDesk.git
+git clone https://github.com/nerds-lab-chapter-26/mdadDesk.git
 cd mdadDesk
 npm install
 ```

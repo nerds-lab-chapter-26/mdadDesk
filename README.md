@@ -16,12 +16,14 @@ Want to help? Read [CONTRIBUTING.md](CONTRIBUTING.md). AI agents: see [AGENTS.md
 
 ## How it works
 1. **Reporter** (no login): opens the app, taps an SOS card (Fire, Medical, Trapped, …), flips it and
-   sends. Location is asked for when the page opens, so the SOS carries GPS at once.
+   sends. Location is asked for when the page opens, so the SOS carries GPS at once ("Not now" is
+   remembered for 7 days). No GPS fix? It falls back to the Wi-Fi / tower position, then offers "Try again".
 2. **AI** (Gemini) reads the free-text message in any Asia-Pacific language (English, Urdu,
    Roman Urdu, Hindi, Bahasa, Japanese …) and fills the incident card. Anything not said stays "Unknown"; AI never invents details and never dispatches.
 3. **Coordinator** (Desk): sees new incidents on a map, verifies (or holds to close a false alarm),
    then sends the right agencies.
-4. **Agency** (Inbox): a siren and a request appear next to a live globe; staff tap "On the way".
+4. **Agency** (Inbox): a siren and a request appear next to a live globe, with an arc from the agency's
+   own station to the incident; staff tap "On the way".
 5. **Reporter** sees each step (Received → Verified → Help sent → On the way) and a green
    "Help is coming" screen.
 
@@ -34,6 +36,7 @@ Want to help? Read [CONTRIBUTING.md](CONTRIBUTING.md). AI agents: see [AGENTS.md
 - Installable PWA, works on phones, guided tours on first visit, calm UI with lucide icons.
 - The coordinator can fix any AI-filled field by hand ("Edited: ..." lands on the timeline).
 - Accessible: Lighthouse Accessibility 100 on `/` and `/login`; the SOS cards work with the keyboard only.
+- If details are missing, the AI asks one short follow-up question in the reporter's own language.
 - If AI fails, the SOS is still delivered; fields simply show "Unknown" for the coordinator to confirm.
 - Accuracy check: `npm run eval` scores the AI on 30 labeled reports (English, Urdu, Roman Urdu + 9 Asia-Pacific languages) (last run 93.3%, 0 invented values).
 
